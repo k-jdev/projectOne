@@ -13,7 +13,7 @@ function MainNavbar() {
   return (
     <div className="container mx-auto mt-8 flex items-center place-content-between">
       <Link to="/">
-        <div className="flex items-end text-white text-lg">
+        <div className="flex items-end text-white text-base">
           <img src={logo} alt="logo" />
           <p>ProjectOne</p>
         </div>
