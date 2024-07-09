@@ -1,10 +1,11 @@
 import React from "react";
+import Navbar from "../components/Navbar/MainNavbar.jsx";
 
 function Home() {
   return (
-    <>
-      <h1>test</h1>
-    </>
+    <div className="container mx-auto">
+      <Navbar />
+    </div>
   );
 }
 
