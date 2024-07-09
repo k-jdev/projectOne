@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import "./MainNavbar.css";
 
 function MainNavbar() {
   const location = useLocation();
@@ -11,9 +12,9 @@ function MainNavbar() {
   };
 
   return (
-    <div className="container mx-auto mt-8 flex items-center place-content-between">
+    <div className="container mx-auto mt-4 flex items-center place-content-between">
       <Link to="/">
-        <div className="flex items-end text-white text-base">
+        <div className="flex items-end text-white text-xl">
           <img src={logo} alt="logo" />
           <p>ProjectOne</p>
         </div>

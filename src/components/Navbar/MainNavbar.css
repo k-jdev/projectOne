@@ -5,3 +5,7 @@
 .inactive {
     color: gray;
   }
+  .inactive:hover{
+    color: rgb(167, 167, 167);
+    transition: 0.2s;
+  } 
