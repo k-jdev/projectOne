@@ -2,7 +2,6 @@ import React from "react";
 import fon from "../../assets/fon.png";
 import copy from "copy-to-clipboard";
 import copyIcon from "../../assets/copyIcon.png";
-import Alert from "../Alert/Alert";
 
 function Header() {
   return (
@@ -19,7 +18,7 @@ function Header() {
             copy("play.project01.dev");
             alert("Скопировано");
           }}
-          className="mt-12 text-white text-xl bg-yellow-700 p-2 rounded-lg flex items-center gap-2"
+          className="mt-12 text-white text-xl bg-yellow-700 p-2 rounded-lg flex items-center gap-2 hover:scale-105 transition"
         >
           play.project01.dev
           <img src={copyIcon} alt="" />

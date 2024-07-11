@@ -30,6 +30,11 @@ function MainNavbar() {
             Чат
           </li>
         </Link>
+        <Link to="/rules" onClick={() => handleClick("/rules")}>
+          <li className={activeButton === "/rules" ? "active" : "inactive"}>
+            Правила
+          </li>
+        </Link>
       </ul>
     </div>
   );
