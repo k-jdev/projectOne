@@ -12,11 +12,11 @@ function MainNavbar() {
   };
 
   return (
-    <div className="container mx-auto mt-4 flex items-center place-content-between ">
+    <div className="container mx-auto mt-4 flex items-center place-content-between">
       <Link to="/">
         <div className="flex items-end text-white text-xl  animate-fadeIn">
           <img src={logo} alt="logo" />
-          <p>ProjectOne</p>
+          <p className="hidden sm:block">ProjectOne</p>
         </div>
       </Link>
       <ul className="flex gap-4 text-lg ">

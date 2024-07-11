@@ -7,12 +7,12 @@ function Header() {
   return (
     <div className="mt-44 flex place-content-around animate-fadeIn">
       <div className="content-center">
-        <div className="text-white text-xl  w-3/4">
+        <div className="text-white text-xl  sm:text-lg  w-3/4">
           <span className=" bg-yellow-700">Лучший</span> Bedrock сервер
           основаный на Гейзере. Прекрасные плагины которые не мешают ванильной
           игре и доброе комьюнити
         </div>
-        <div></div>
+
         <button
           onClick={() => {
             copy("play.project01.dev");
@@ -26,7 +26,7 @@ function Header() {
       </div>
 
       <div>
-        <img src={fon} className="w-2/2" alt="" />
+        <img src={fon} className="w-2/2 hidden sm:block" alt="" />
       </div>
     </div>
   );

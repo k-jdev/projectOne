@@ -8,7 +8,7 @@ import ServerRules from "./pages/ServerRules";
 
 function App() {
   return (
-    <div className="font-Ubuntu font-bold">
+    <div className="font-Ubuntu font-bold mr-10 ml-10 ">
       <Routes>
         <Route element={<Home />} path="/"></Route>
         <Route element={<Rules />} path="/rules"></Route>
