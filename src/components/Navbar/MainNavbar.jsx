@@ -16,7 +16,7 @@ function MainNavbar() {
       <Link to="/">
         <div className="flex items-end text-white text-xl  animate-fadeIn">
           <img src={logo} alt="logo" />
-          <p>ProjectOne</p>
+          <p className="hidden sm:block">ProjectOne</p>
         </div>
       </Link>
       <ul className="flex gap-4 text-lg ">
