@@ -9,14 +9,17 @@ function ChatBlock() {
     const socketInstance = io("http://localhost:5000");
     setSocket(socketInstance);
 
+    //підключення до сервера
     socketInstance.on("connect", () => {
       console.log("Server connected");
     });
 
+    //отримання з сервера повідомлення
     socketInstance.on("message", (message) => {
       setMessages((prevMessages) => [...prevMessages, message]);
     });
 
+    //відключення від сервера
     return () => {
       socketInstance.disconnect();
     };

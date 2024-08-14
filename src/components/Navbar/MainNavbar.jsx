@@ -14,7 +14,7 @@ function MainNavbar() {
   return (
     <div className="container mx-auto mt-4 flex items-center place-content-between ">
       <Link to="/">
-        <div className="flex items-end text-white text-xl  animate-fadeIn">
+        <div className="flex items-end text-white text-xl animate-fadeIn">
           <img src={logo} alt="logo" />
           <p className="hidden sm:block">ProjectOne</p>
         </div>
@@ -35,6 +35,20 @@ function MainNavbar() {
             Правила
           </li>
         </Link>
+        <div className="grid">
+          <Link to="/register" onClick={() => handleClick("/register")}>
+            <li
+              className={activeButton === "/register" ? "active" : "inactive"}
+            >
+              Зарегестрироваться
+            </li>
+          </Link>
+          <Link to="/login" onClick={() => handleClick("/login")}>
+            <li className={activeButton === "/login" ? "active" : "inactive"}>
+              Войти
+            </li>
+          </Link>
+        </div>
       </ul>
     </div>
   );
