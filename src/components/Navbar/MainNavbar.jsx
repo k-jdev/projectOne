@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import square from "../../assets/square.svg";
 import "./MainNavbar.css";
 
 function MainNavbar() {
@@ -14,12 +15,15 @@ function MainNavbar() {
   return (
     <div className="container mx-auto mt-4 flex items-center place-content-between ">
       <Link to="/">
-        <div className="flex items-end text-white text-xl animate-fadeIn">
+        <div className="flex items-end text-white text-xl animate-fadeIn relative">
           <img src={logo} alt="logo" />
-          <p className="hidden sm:block">ProjectOne</p>
+          <div className="flex flex-col relative">
+            <p className="hidden sm:block z-30 relative">ProjectOne</p>
+            <img className="z-10 absolute -top-5 left-20" src={square} alt="" />
+          </div>
         </div>
       </Link>
-      <ul className="flex gap-4 text-lg ">
+      <ul className="flex gap-4 text-lg">
         <Link to="/" onClick={() => handleClick("/")}>
           <li className={activeButton === "/" ? "active" : "inactive"}>
             Главная
@@ -35,17 +39,17 @@ function MainNavbar() {
             Правила
           </li>
         </Link>
-        <div className="grid">
+        <div className="flex flex-col items-center">
+          <Link to="/login" onClick={() => handleClick("/login")}>
+            <li className={activeButton === "/login" ? "active" : "inactive"}>
+              Войти
+            </li>
+          </Link>
           <Link to="/register" onClick={() => handleClick("/register")}>
             <li
               className={activeButton === "/register" ? "active" : "inactive"}
             >
-              Зарегестрироваться
-            </li>
-          </Link>
-          <Link to="/login" onClick={() => handleClick("/login")}>
-            <li className={activeButton === "/login" ? "active" : "inactive"}>
-              Войти
+              <button className="">Зарегестрироваться</button>
             </li>
           </Link>
         </div>

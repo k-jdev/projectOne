@@ -5,15 +5,22 @@ function Login() {
   return (
     <div>
       <MainNavbar />
-      <form className="mt-40 mx-auto text-white" action="" method="get">
-        <div>
-          <label htmlFor="name">Введи свой ник в игре: </label>
-          <input type="text" name="name" id="name" />
+      <form
+        className="mt-40 mx-auto text-white bg-slate-800 w-1/3 p-6 rounded-lg animate-fadeIn text-center place-self-center"
+        action=""
+        method="get"
+      >
+        <h1 className="text-2xl mb-6 text-center">Войти</h1>
+
+        <div className="mb-4 w-full flex flex-col items-center">
+          <label htmlFor="name">Ник </label>
+          <input className="text-black w-2/3" type="text" id="name" />
         </div>
-        <div>
-          <label htmlFor="name">Введи пароль: </label>
-          <input type="password" id="pass" />
+        <div className="mb-4 w-full flex flex-col items-center">
+          <label htmlFor="pass">Пароль </label>
+          <input className="text-black w-2/3" type="password" id="pass" />
         </div>
+        <button className="place-content-center">Отправить</button>
       </form>
     </div>
   );
