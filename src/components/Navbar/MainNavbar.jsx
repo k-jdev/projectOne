@@ -23,9 +23,10 @@ function MainNavbar() {
           </div>
         </div>
       </Link>
-      <ul className="flex gap-4 text-lg">
-        <Link to="/" onClick={() => handleClick("/")}>
+      <ul className="flex gap-4 text-lg ">
+        <Link className="" to="/" onClick={() => handleClick("/")}>
           <li className={activeButton === "/" ? "active" : "inactive"}>
+            <p className=""></p>
             Главная
           </li>
         </Link>
