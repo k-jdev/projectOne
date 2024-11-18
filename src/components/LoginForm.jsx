@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, register, logout } from "../store/slices/authSlice";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -26,8 +27,8 @@ const LoginForm = () => {
     <div>
       {user ? (
         <div>
-          <h1>Welcome, {user.name || "User"}!</h1>
-          <button onClick={handleLogout}>Logout</button>
+          <h1>Привіт, {email || "користувачу"}!</h1>
+          <button onClick={handleLogout}>Вийти</button>
         </div>
       ) : (
         <form onSubmit={handleAuth}>
@@ -44,21 +45,27 @@ const LoginForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" disabled={isLoading}>
-            {isLoading
-              ? isRegistering
-                ? "Registering..."
-                : "Logging in..."
-              : isRegistering
-              ? "Register"
-              : "Login"}
+            {isLoading ? (
+              isRegistering ? (
+                "Registering..."
+              ) : (
+                "Logging in..."
+              )
+            ) : isRegistering ? (
+              <Link to={"/register"}>Реєстрація</Link>
+            ) : (
+              <Link to={"/login"}>Ввійти</Link>
+            )}
           </button>
           <button
             type="button"
             onClick={() => setIsRegistering(!isRegistering)}
           >
-            {isRegistering ? "Switch to Login" : "Switch to Register"}
+            {isRegistering
+              ? "Переключитись на логін"
+              : "Переключитись на реєстрацію"}
           </button>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {console.log(error)}
         </form>
       )}
     </div>

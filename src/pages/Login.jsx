@@ -1,26 +1,63 @@
-import React from "react";
-import MainNavbar from "./../components/Navbar/MainNavbar";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../store/slices/authSlice";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading, error, user } = useSelector((state) => state.auth);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(login({ email, password })).then((action) => {
+      if (action.meta.requestStatus === "fulfilled") {
+        navigate("/"); // Перенаправление на главную страницу
+      }
+    });
+  };
+
   return (
     <div>
-      <MainNavbar />
       <form
-        className="mt-40 mx-auto text-white bg-slate-800 w-1/3 p-6 rounded-lg animate-fadeIn text-center place-self-center"
-        action=""
-        method="get"
+        className="mt-40 mx-auto text-white bg-slate-800 w-1/3 p-6 rounded-lg animate-fadeIn text-center"
+        onSubmit={handleLogin}
       >
-        <h1 className="text-2xl mb-6 text-center">Войти</h1>
-
-        <div className="mb-4 w-full flex flex-col items-center">
-          <label htmlFor="name">Ник </label>
-          <input className="text-black w-2/3" type="text" id="name" />
+        <h1 className="text-2xl mb-6">Увійти</h1>
+        <div className="mb-4">
+          <label htmlFor="email">E-mail</label>
+          <input
+            className="text-black w-full"
+            type="email"
+            id="email"
+            placeholder="Уведіть e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-        <div className="mb-4 w-full flex flex-col items-center">
-          <label htmlFor="pass">Пароль </label>
-          <input className="text-black w-2/3" type="password" id="pass" />
+        <div className="mb-4">
+          <label htmlFor="password">Пароль</label>
+          <input
+            className="text-black w-full"
+            type="password"
+            id="password"
+            placeholder="Уведіть паролт"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
-        <button className="place-content-center">Отправить</button>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded"
+          disabled={isLoading}
+        >
+          {isLoading ? "Вхід..." : "Увйти"}
+        </button>
+        {error && <p className="text-red-500 mt-2">{error}</p>}
       </form>
     </div>
   );
