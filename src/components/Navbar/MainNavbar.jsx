@@ -21,7 +21,7 @@ function MainNavbar() {
   };
 
   return (
-    <div className="container mx-auto mt-4 flex items-center place-content-between">
+    <div className="container mx-auto mt-4 flex items-center place-content-between ">
       <Link to="/">
         <div className="flex items-end text-white text-xl animate-fadeIn relative">
           <img src={logo} alt="logo" />
@@ -31,9 +31,10 @@ function MainNavbar() {
           </div>
         </div>
       </Link>
-      <ul className="flex gap-4 text-lg">
-        <Link to="/" onClick={() => handleClick("/")}>
+      <ul className="flex gap-4 text-lg ">
+        <Link className="" to="/" onClick={() => handleClick("/")}>
           <li className={activeButton === "/" ? "active" : "inactive"}>
+            <p className=""></p>
             Главная
           </li>
         </Link>
@@ -47,6 +48,7 @@ function MainNavbar() {
             Правила
           </li>
         </Link>
+
         {user ? (
           <div className="flex items-center">
             <span className="text-white mr-4">{user.email}</span>
@@ -73,6 +75,21 @@ function MainNavbar() {
             </Link>
           </div>
         )}
+
+        <div className="flex flex-col items-center">
+          <Link to="/login" onClick={() => handleClick("/login")}>
+            <li className={activeButton === "/login" ? "active" : "inactive"}>
+              Войти
+            </li>
+          </Link>
+          <Link to="/register" onClick={() => handleClick("/register")}>
+            <li
+              className={activeButton === "/register" ? "active" : "inactive"}
+            >
+              <button className="">Зарегестрироваться</button>
+            </li>
+          </Link>
+        </div>
       </ul>
     </div>
   );
