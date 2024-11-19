@@ -51,7 +51,7 @@ function MainNavbar() {
           <div className="flex items-center">
             <span className="text-white mr-4">{user.email}</span>
             <button
-              className="bg-red-500 text-white py-1 px-3 rounded"
+              className="bg-yellow-700 text-white py-1 px-3 rounded hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
               onClick={handleLogout}
             >
               Вийти
