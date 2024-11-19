@@ -7,6 +7,7 @@ function Home() {
     <div className="container mx-auto">
       <Navbar />
       <Header />
+      {/* <LoginForm /> */}
     </div>
   );
 }

@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../store/slices/authSlice";
 import logo from "../../assets/logo.svg";
 import square from "../../assets/square.svg";
 import "./MainNavbar.css";
 
 function MainNavbar() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [activeButton, setActiveButton] = useState(location.pathname);
+  const { user } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   const handleClick = (path) => {
     setActiveButton(path);
@@ -40,6 +48,34 @@ function MainNavbar() {
             Правила
           </li>
         </Link>
+
+        {user ? (
+          <div className="flex items-center">
+            <span className="text-white mr-4">{user.email}</span>
+            <button
+              className="bg-yellow-700 text-white py-1 px-3 rounded hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
+              onClick={handleLogout}
+            >
+              Вийти
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <Link to="/login" onClick={() => handleClick("/login")}>
+              <li className={activeButton === "/login" ? "active" : "inactive"}>
+                Увійти
+              </li>
+            </Link>
+            <Link to="/register" onClick={() => handleClick("/register")}>
+              <li
+                className={activeButton === "/register" ? "active" : "inactive"}
+              >
+                Зареєструватись
+              </li>
+            </Link>
+          </div>
+        )}
+
         <div className="flex flex-col items-center">
           <Link to="/login" onClick={() => handleClick("/login")}>
             <li className={activeButton === "/login" ? "active" : "inactive"}>

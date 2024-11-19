@@ -1,31 +1,77 @@
-import React from "react";
-import MainNavbar from "./../components/Navbar/MainNavbar";
+
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { register } from "../store/slices/authSlice";
+import MainNavbar from "../components/Navbar/MainNavbar";
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading, error, user } = useSelector((state) => state.auth);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    dispatch(register({ email, password })).then((action) => {
+      if (action.meta.requestStatus === "fulfilled") {
+        navigate("/");
+      }
+      if (error) {
+        console.error("Login error:", error.message || error);
+      }
+    });
+  };
+
   return (
-    <div>
+    <>
       <MainNavbar />
-      <form
-        className="mt-40 mx-auto text-white bg-slate-800 w-1/3 p-6 rounded-lg animate-fadeIn text-center place-self-center"
-        action=""
-        method="get"
-      >
-        <h1 className="text-2xl mb-6 text-center">Регистрация</h1>
-        <div className="mb-4 w-full flex flex-col items-center">
-          <label htmlFor="name">Ник </label>
-          <input className="text-black w-2/3" type="text" id="name" />
-        </div>
-        <div className="mb-4 w-full flex flex-col items-center">
-          <label htmlFor="name">Почта </label>
-          <input className="text-black w-2/3" type="text" id="email" />
-        </div>
-        <div className="mb-4 w-full flex flex-col items-center">
-          <label htmlFor="name">Пароль </label>
-          <input className="text-black w-2/3" type="password" id="pass" />
-        </div>
-        <button className=" place-content-center">Отправить</button>
-      </form>
-    </div>
+      <div>
+        <form
+          className="mt-40 mx-auto text-white bg-slate-800 w-1/3 p-6 rounded-lg animate-fadeIn text-center"
+          onSubmit={handleRegister}
+        >
+          {user == null ? (
+            <>
+              {" "}
+              <h1 className="text-2xl mb-6">Реєстрація</h1>
+              <div className="mb-4">
+                <label htmlFor="email">E-mail</label>
+                <input
+                  className="text-black w-full"
+                  type="email"
+                  id="email"
+                  placeholder="Введите e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="password">Пароль</label>
+                <input
+                  className="text-black w-full"
+                  type="password"
+                  id="password"
+                  placeholder="Введіть пароль"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-green-500 text-white py-2 px-4 rounded"
+                disabled={isLoading}
+              >
+                {isLoading ? "Реєстрація..." : "Зареєструватись"}
+              </button>
+            </>
+          ) : null}
+        </form>
+      </div>
+    </>
   );
 }
 
