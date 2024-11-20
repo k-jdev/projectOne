@@ -8,9 +8,9 @@ function Header() {
     <div className="mt-32 flex place-content-around animate-fadeIn">
       <div className="content-center">
         <div className="text-white text-xl  sm:text-xl  w-3/4">
-          <span className=" bg-yellow-700">Лучший</span> Bedrock сервер
-          основаный на Гейзере. Прекрасные плагины которые не мешают ванильной
-          игре и доброе комьюнити
+          <span className=" bg-yellow-700">Найкращий</span> Bedrock сервер
+          побудований на Гейзері. Прекрасні плагіни, які не заважають ванільній
+          грі та добре ком'юніті
         </div>
 
         <button

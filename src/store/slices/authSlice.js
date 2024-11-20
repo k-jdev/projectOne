@@ -1,26 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import $api from "../../http";
 
-// Асинхронный action для авторизации
+// async action for login
 export const login = createAsyncThunk(
   "auth/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       const response = await $api.post("/login", { email, password });
-      return response.data; // Возвращаем данные пользователя
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Login failed");
     }
   }
 );
 
-// Асинхронный action для регистрации
+// async action for registration
 export const register = createAsyncThunk(
   "auth/registration",
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ email, password, name }, { rejectWithValue }) => {
     try {
-      const response = await $api.post("/registration", { email, password });
-      return response.data; // Возвращаем данные нового пользователя
+      const response = await $api.post("/registration", {
+        email,
+        password,
+        name,
+      });
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Registration failed");
     }

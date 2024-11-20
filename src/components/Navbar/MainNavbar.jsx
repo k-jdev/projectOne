@@ -35,7 +35,7 @@ function MainNavbar() {
         <Link className="" to="/" onClick={() => handleClick("/")}>
           <li className={activeButton === "/" ? "active" : "inactive"}>
             <p className=""></p>
-            Главная
+            Головна
           </li>
         </Link>
         <Link to="/chat" onClick={() => handleClick("/chat")}>
@@ -50,8 +50,8 @@ function MainNavbar() {
         </Link>
 
         {user ? (
-          <div className="flex items-center">
-            <span className="text-white mr-4">{user.email}</span>
+          <div className="flex flex-col items-center">
+            <span className="text-white mb-1">{user.user.name}</span>
             <button
               className="bg-yellow-700 text-white py-1 px-3 rounded hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
               onClick={handleLogout}
@@ -75,21 +75,6 @@ function MainNavbar() {
             </Link>
           </div>
         )}
-
-        <div className="flex flex-col items-center">
-          <Link to="/login" onClick={() => handleClick("/login")}>
-            <li className={activeButton === "/login" ? "active" : "inactive"}>
-              Войти
-            </li>
-          </Link>
-          <Link to="/register" onClick={() => handleClick("/register")}>
-            <li
-              className={activeButton === "/register" ? "active" : "inactive"}
-            >
-              <button className="">Зарегестрироваться</button>
-            </li>
-          </Link>
-        </div>
       </ul>
     </div>
   );
