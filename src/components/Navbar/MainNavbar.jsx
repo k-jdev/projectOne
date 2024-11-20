@@ -35,7 +35,7 @@ function MainNavbar() {
         <Link className="" to="/" onClick={() => handleClick("/")}>
           <li className={activeButton === "/" ? "active" : "inactive"}>
             <p className=""></p>
-            Главная
+            Головна
           </li>
         </Link>
         <Link to="/chat" onClick={() => handleClick("/chat")}>
@@ -75,21 +75,6 @@ function MainNavbar() {
             </Link>
           </div>
         )}
-
-        <div className="flex flex-col items-center">
-          <Link to="/login" onClick={() => handleClick("/login")}>
-            <li className={activeButton === "/login" ? "active" : "inactive"}>
-              Войти
-            </li>
-          </Link>
-          <Link to="/register" onClick={() => handleClick("/register")}>
-            <li
-              className={activeButton === "/register" ? "active" : "inactive"}
-            >
-              <button className="">Зарегестрироваться</button>
-            </li>
-          </Link>
-        </div>
       </ul>
     </div>
   );
