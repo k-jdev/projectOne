@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,13 +7,14 @@ import MainNavbar from "../components/Navbar/MainNavbar";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isLoading, error, user } = useSelector((state) => state.auth);
 
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(register({ email, password })).then((action) => {
+    dispatch(register({ email, password, name })).then((action) => {
       if (action.meta.requestStatus === "fulfilled") {
         navigate("/");
       }
@@ -23,6 +23,7 @@ function Register() {
       }
     });
   };
+  console.log(user);
 
   return (
     <>
@@ -57,6 +58,18 @@ function Register() {
                   placeholder="Введіть пароль"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="password">Ім'я користувача</label>
+                <input
+                  className="text-black w-full"
+                  type="text"
+                  id="name"
+                  placeholder="JhonDoe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </div>
