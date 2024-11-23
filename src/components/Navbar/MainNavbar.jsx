@@ -20,6 +20,9 @@ function MainNavbar() {
     setActiveButton(path);
   };
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+  console.log(userData);
+
   return (
     <div className="container mx-auto mt-4 flex items-center place-content-between ">
       <Link to="/">
@@ -51,7 +54,7 @@ function MainNavbar() {
 
         {user ? (
           <div className="flex flex-col items-center">
-            <span className="text-white mb-1">{user.user.name}</span>
+            <span className="text-white mb-1">{userData.user.name}</span>
             <button
               className="bg-yellow-700 text-white py-1 px-3 rounded hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
               onClick={handleLogout}
