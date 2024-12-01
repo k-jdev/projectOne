@@ -1,46 +1,42 @@
-import React, { useState, useEffect } from "react";
-import io from "socket.io-client";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addMessage } from "../../store/slices/chatSlice";
 
 function ChatBlock() {
-  const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
+  const dispatch = useDispatch();
+  const messages = useSelector((state) => state.chat.messages);
 
   useEffect(() => {
-    const socketInstance = io("http://localhost:5000");
-    setSocket(socketInstance);
+    // Подключение к WebSocket серверу
+    const socket = new WebSocket("ws://localhost:3001"); // Укажите адрес WebSocket сервера
 
-    //підключення до сервера
-    socketInstance.on("connect", () => {
-      console.log("Server connected");
-    });
-
-    //отримання з сервера повідомлення
-    socketInstance.on("message", (message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
-
-    //відключення від сервера
-    return () => {
-      socketInstance.disconnect();
+    socket.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      dispatch(addMessage(data)); // Отправляем сообщение в Redux
     };
-  }, []);
 
-  const handleSendMessage = (message) => {
-    if (socket) {
-      socket.emit("message", message);
-    }
-  };
+    return () => {
+      socket.close(); // Закрытие соединения при размонтировании
+    };
+  }, [dispatch]);
 
   return (
     <div className="container mx-auto">
-      <div className=" mt-10 h-dvh text-white bg-slate-800 rounded-xl">
-        {messages.map((message) => (
-          <p key={message.player}>
-            {message.player}: {message.message}
+      <div className="mt-10 h-dvh text-white bg-slate-800 rounded-xl">
+        {messages.length === 0 ? (
+          <p className="text-center text-white text-2xl p-5">
+            Поки немає повідомлень
           </p>
-        ))}
+        ) : (
+          messages.map((msg, index) => (
+            <li className="mx-4" key={index}>
+              <strong className="text-yellow-500">{msg.player}:</strong>{" "}
+              {msg.message}
+            </li>
+          ))
+        )}
       </div>
-      <input
+      {/* <input
         type="text"
         placeholder="Type a message..."
         onKeyDown={(event) => {
@@ -52,7 +48,7 @@ function ChatBlock() {
             event.target.value = "";
           }
         }}
-      />
+      /> */}
     </div>
   );
 }

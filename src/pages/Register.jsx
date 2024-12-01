@@ -40,7 +40,7 @@ function Register() {
               <div className="mb-4">
                 <label htmlFor="email">E-mail</label>
                 <input
-                  className="text-black w-full"
+                  className="text-black w-full rounded-md p-0.5 mt-1"
                   type="email"
                   id="email"
                   placeholder="Введите e-mail"
@@ -52,7 +52,7 @@ function Register() {
               <div className="mb-4">
                 <label htmlFor="password">Пароль</label>
                 <input
-                  className="text-black w-full"
+                  className="text-black w-full rounded-md p-0.5 mt-1"
                   type="password"
                   id="password"
                   placeholder="Введіть пароль"
@@ -64,7 +64,7 @@ function Register() {
               <div className="mb-4">
                 <label htmlFor="password">Ім'я користувача</label>
                 <input
-                  className="text-black w-full"
+                  className="text-black w-full rounded-md p-0.5 mt-1"
                   type="text"
                   id="name"
                   placeholder="JhonDoe"
@@ -75,7 +75,7 @@ function Register() {
               </div>
               <button
                 type="submit"
-                className="bg-green-500 text-white py-2 px-4 rounded"
+                className=" text-white text-xl bg-yellow-700 p-2 rounded-lg hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
                 disabled={isLoading}
               >
                 {isLoading ? "Реєстрація..." : "Зареєструватись"}
