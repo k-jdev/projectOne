@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +38,7 @@ function Login() {
               <div className="mb-4">
                 <label htmlFor="email">E-mail</label>
                 <input
-                  className="text-black w-full"
+                  className="text-black w-full rounded-md p-0.5 mt-1"
                   type="email"
                   id="email"
                   placeholder="Уведіть e-mail"
@@ -51,7 +50,7 @@ function Login() {
               <div className="mb-4">
                 <label htmlFor="password">Пароль</label>
                 <input
-                  className="text-black w-full"
+                  className="text-black w-full rounded-md p-0.5 mt-1"
                   type="password"
                   id="password"
                   placeholder="Введіть пароль"
@@ -62,7 +61,7 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded"
+                className=" text-white text-xl bg-yellow-700 p-2 rounded-lg hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
                 disabled={isLoading}
               >
                 {isLoading ? "Вхід..." : "Увійти"}
@@ -72,7 +71,6 @@ function Login() {
         </form>
       </div>
     </>
-
   );
 }
 
