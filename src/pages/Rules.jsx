@@ -11,14 +11,14 @@ function Rules() {
       <div className="flex mx-48">
         <div className="mt-28 text-5xl text-white container mx-auto">
           <h1 className="mb-8">Правила</h1>
-          <ul className="text-gray-700 text-xl bg-slate-50 w-52 rounded-lg p-2">
+          <ul className="text-white text-xl bg-testdark-500 w-52 rounded-lg p-2">
             <Link to="/chat_rules">
-              <li className=" hover:text-gray-600 duration-300">
+              <li className=" hover:text-gray-400 duration-300">
                 • Правила чата
               </li>
             </Link>
             <Link to="/server_rules">
-              <li className=" hover:text-gray-600 duration-300">
+              <li className=" hover:text-gray-400 duration-300">
                 • Правила сервера
               </li>
             </Link>

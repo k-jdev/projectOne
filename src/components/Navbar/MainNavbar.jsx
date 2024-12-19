@@ -29,7 +29,7 @@ function MainNavbar() {
         <div className="flex items-end text-white text-xl animate-fadeIn relative">
           <img src={logo} alt="logo" />
           <div className="flex flex-col relative">
-            <p className="hidden sm:block z-30 relative">ProjectOne</p>
+            <p className="hidden sm:block z-30 relative ml-2">ProjectOne</p>
             <img className="z-10 absolute -top-5 left-20" src={square} alt="" />
           </div>
         </div>

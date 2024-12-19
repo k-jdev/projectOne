@@ -12,7 +12,7 @@ import Login from "./pages/Login";
 function App() {
   //роути
   return (
-    <div className="font-Ubuntu font-bold mr-10 ml-10">
+    <div className="font-Ubuntu font-bold mr-10 ml-10 scroll-smooth">
       <Routes>
         <Route element={<Home />} path="/"></Route>
         <Route element={<Rules />} path="/rules"></Route>
