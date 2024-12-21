@@ -41,9 +41,9 @@ function Register() {
   return (
     <>
       <MainNavbar />
-      <div>
+      <div className="flex items-center justify-center min-h-screen">
         <form
-          className="mt-40 mx-auto text-white bg-testdark-500 w-1/3 p-6 rounded-lg animate-fadeIn text-center"
+          className="w-full max-w-md px-4 py-6 sm:w-1/2 lg:w-1/3 bg-testdark-500 text-white rounded-lg animate-fadeIn text-center"
           onSubmit={handleRegister}
         >
           {user == null ? (
@@ -120,7 +120,7 @@ function Register() {
               </div>
               <button
                 type="submit"
-                className="text-white text-xl bg-yellow-700 p-2 rounded-lg hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
+                className="w-full text-white text-xl bg-yellow-700 p-2 rounded-lg hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
                 disabled={isLoading}
               >
                 {isLoading ? "Реєстрація..." : "Зареєструватись"}

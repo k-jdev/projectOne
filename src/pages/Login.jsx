@@ -37,14 +37,14 @@ function Login() {
   return (
     <>
       <MainNavbar />
-      <div>
+      <div className="flex justify-center items-center min-h-screen ">
         <form
-          className="mt-40 mx-auto text-white bg-testdark-500 w-1/3 p-6 rounded-lg animate-fadeIn text-center"
+          className="w-11/12 sm:w-2/3 md:w-1/3 text-white bg-testdark-500 p-6 rounded-lg animate-fadeIn text-center shadow-lg"
           onSubmit={handleLogin}
         >
           {user == null ? (
             <>
-              <h1 className="text-2xl mb-6">Увійти</h1>
+              <h1 className="text-xl md:text-2xl mb-6">Увійти</h1>
               <div className="relative mb-6">
                 <label
                   htmlFor="email"
@@ -58,7 +58,7 @@ function Login() {
                   E-mail
                 </label>
                 <input
-                  className="text-black w-full rounded-md p-2 border focus:border-yellow-500 outline-none"
+                  className="text-black w-full rounded-md p-3 border focus:border-yellow-500 outline-none"
                   type="email"
                   id="email"
                   value={email}
@@ -81,7 +81,7 @@ function Login() {
                   Пароль
                 </label>
                 <input
-                  className="text-black w-full rounded-md p-2 border focus:border-yellow-500 outline-none"
+                  className="text-black w-full rounded-md p-3 border focus:border-yellow-500 outline-none"
                   type="password"
                   id="password"
                   value={password}
@@ -93,7 +93,7 @@ function Login() {
               </div>
               <button
                 type="submit"
-                className="text-white text-xl bg-yellow-700 p-2 rounded-lg hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
+                className="text-white text-lg md:text-xl bg-yellow-700 p-3 rounded-lg w-full hover:scale-105 transition shadow-lg hover:shadow-yellow-500/50"
                 disabled={isLoading}
               >
                 {isLoading ? "Вхід..." : "Увійти"}
