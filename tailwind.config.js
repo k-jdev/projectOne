@@ -8,6 +8,11 @@ export default {
     },
 
     extend: {
+      colors: {
+        testdark: {
+          500: "#2e2e2e",
+        },
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },

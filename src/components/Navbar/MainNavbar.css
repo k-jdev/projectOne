@@ -1,11 +1,21 @@
 .active {
-    color: white;
-  }
-  
+  font-weight: bold;
+  color: rgb(234 179 8);
+}
+
 .inactive {
-    color: gray;
+  color: gray;
+}
+.inactive:hover {
+  color: rgb(167, 167, 167);
+  transition: 0.2s;
+}
+
+@media (min-width: 768px) {
+  .hidden {
+    display: none;
   }
-  .inactive:hover{
-    color: rgb(167, 167, 167);
-    transition: 0.2s;
-  } 
+  .block {
+    display: flex;
+  }
+}

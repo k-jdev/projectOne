@@ -22,7 +22,7 @@ function ChatBlock() {
 
   return (
     <div className="container mx-auto">
-      <div className="mt-10 h-dvh text-white bg-slate-800 rounded-xl">
+      <div className="mt-10 h-dvh text-white bg-testdark-500 rounded-xl">
         {messages.length === 0 ? (
           <p className="text-center text-white text-2xl p-5">
             Поки немає повідомлень
